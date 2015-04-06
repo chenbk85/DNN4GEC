@@ -10,6 +10,7 @@ void DNN::backpropagate()
 			A[i][j] -= this->alpha*AE[i][j]/this->miniBatch;
 		}
 
+
 	for(int i=0;i<BH;i++)
 		for(int j=0;j<BW;j++)
 		{

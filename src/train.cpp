@@ -28,11 +28,11 @@ void DNN::train(string trainFile,string validateFile,string model,int times,doub
                 fin.seekg(0,fin.beg);
 
                 trainError = validate(validateFile);
-                double temp = lastTimeError-trainError;
+                double dela = lastTimeError-trainError;
                 lastTimeError = trainError;
-                cout<<trainTime<<"\tError Decrease:\t"<<temp<<"\t"<<trainError<<"\t"<<this->alpha<<endl;
+                cout<<trainTime<<"\tError Decrease:\t"<<dela<<"\t"<<trainError<<"\t"<<this->alpha<<endl;
 
-                if(temp<0 && perTrainTime>miniTrainTime)
+                if(dela<0 && perTrainTime>miniTrainTime)
                 {
                 	if(decayTime>LRNUM)
                 		break;
@@ -43,7 +43,10 @@ void DNN::train(string trainFile,string validateFile,string model,int times,doub
                 	this->alpha = this->alpha/nnd;
                 	loadModel(model);
                 }
-                saveModel(model);
+				//save the model only when the model is better!
+				if(dela>0)
+					saveModel(model);
+
                 trainTime ++;
                 perTrainTime ++;
 

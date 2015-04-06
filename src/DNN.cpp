@@ -20,7 +20,7 @@ void DNN::initParameter()
         for(int j=0;j<AW;j++)
         {
             //0.02  <  0.03  > 0.04
-            A[i][j] = normal(0,0.06);
+            A[i][j] = normal(0,0.005);
         }
     }
 
@@ -28,7 +28,7 @@ void DNN::initParameter()
     {
         for(int j=0;j<BW;j++)
         {
-            B[i][j] = normal(0,0.06);
+            B[i][j] = normal(0,0.005);
         }
     }
 
@@ -36,7 +36,7 @@ void DNN::initParameter()
     {
         for(int j=0;j<CW;j++)
         {
-            C[i][j] = normal(0,0.06);
+            C[i][j] = normal(0,0.005);
         }
     }
 }
