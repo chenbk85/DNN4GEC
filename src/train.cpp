@@ -44,16 +44,16 @@ void DNN::train(string trainFile,string validateFile,string model,int times,doub
                 	loadModel(model);
                 }
 				//save the model only when the model is better!
-				if(dela>0)
-					saveModel(model);
+                if(dela>0)
+                    saveModel(model);
 
                 trainTime ++;
                 perTrainTime ++;
 
-    			fin >> nid >> pid >> sid >> posi >> ti >> stag >> expectIndex;
-    		}
+                fin >> nid >> pid >> sid >> posi >> ti >> stag >> expectIndex;
+            }
             assert(fin);
-    		for(int j=0;j<inputL;j++)
+            for(int j=0;j<inputL;j++)
             {
                 fin >> input[j];
                 assert(fin);
